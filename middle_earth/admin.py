@@ -5,7 +5,7 @@ from .models import Verses
 class VersesAdmin(admin.ModelAdmin):
     list_filter = ["book", "speaker"]
     list_display = ("book", "speaker", "short_text")
-    ordering = ("book", "sub_book", "chapter", "speaker",)
+    ordering = ("book", "sub_book", "chapter", "page", "speaker",)
     readonly_fields = ('id',)
 
     def short_text(self, obj):

@@ -3,6 +3,7 @@
 body {
     min-height: 75rem;
     padding-top: 4.5rem;
+    background-color: #FCF5E5;
 }
 
 h1  {
@@ -12,4 +13,22 @@ h1  {
 img.bookcover {
     height: 300px;
     width: auto;
+}
+
+.verse-display {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+.title {
+    font-style: italic;
+}
+
+.blockquote {
+    font-style: italic;
+}
+
+.display-6 {
+    font-size: 2rem;
+    color: inherit;
 }
