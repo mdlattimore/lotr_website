@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for lotr-website on 2024-09-07T18:52:13-04:00
+# fly.toml app configuration file generated for middle-earth-compendium on 2024-09-07T19:06:47-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'lotr-website'
+app = 'middle-earth-compendium'
 primary_region = 'bos'
 console_command = '/code/manage.py shell'
 

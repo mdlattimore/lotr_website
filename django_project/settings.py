@@ -32,8 +32,8 @@ default='django-insecure-l=m(_l(vg!e$#_x(qcefm20zn9x3m4944lr42=v39@wh1jtju*',
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["lotr-website.fly.dev", "localhost", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ['https://lotr-website.fly.dev']
+ALLOWED_HOSTS = ["middle-earth-compendium.fly.dev", "localhost", "127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ['https://middle-earth-compendium.fly.dev']
 
 
 # Application definition
