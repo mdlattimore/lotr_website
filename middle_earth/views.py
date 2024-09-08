@@ -6,7 +6,7 @@ class VersesListView(ListView):
     model = Verses
     template_name = "verses_list.html"
     context_object_name = "verses"
-    ordering = ['book', 'sub_book', 'chapter', 'page', 'speaker']
+    ordering = ['book', 'sub_book', 'chapter', 'page']
 
 
 class VerseDetailView(DetailView):

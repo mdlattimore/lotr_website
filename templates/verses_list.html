@@ -9,7 +9,7 @@
 {% for verse in verses %}
 
     <p><a href="{% url 'verse_detail' verse.id %}" style="color: black">{{ verse.text|slice:":100" }} ...</a><br>
-    <span class="text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&#8212; {{ verse.speaker }}, <span class="title">{{ verse.get_book_display }},</span> {% if verse.sub_book %}Book {{ verse.sub_book }}, {% endif %}Chapter {{verse.chapter }}, Page {{ verse.page }}</p><span></p>
+    <span class="text-muted">&nbsp;&nbsp;&nbsp;&nbsp;&#8212; {% for name in verse.speaker.all %}{{ name }}, {% endfor %} <span class="title">{{ verse.get_book_display }},</span> {% if verse.sub_book %}Book {{ verse.sub_book }}, {% endif %}Chapter {{verse.chapter }}, Page {{ verse.page }}</p><span></p>
 
 {% endfor %}
 
