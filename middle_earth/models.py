@@ -61,3 +61,33 @@ class Verses(models.Model):
 
     def __str__(self):
         return f"{self.text[:50]}"
+    
+
+class Characters(models.Model):
+    class Meta:
+        verbose_name_plural = "Characters"
+
+    RACE_CHOICES = [
+        ("Human", "Human"),
+        ("Elf", "Elf"),
+        ("Dwarf", "Dwarf"),
+        ("Hobbit", "Hobbit"),
+        ("Valar", "Valar"),
+        ("Maiar", "Maiar"),
+        ("Orc", "Orc"),
+        ("Uruk-Hai", "Uruk-Hai"),
+        ("Goblin", "Goblin"),
+        ("Eagle", "Eagle"),
+        ("Spider", "Spider"),
+        ("Troll", "Troll"),
+        ("Ent", "Ent"),
+        ("Balrog", "Balrog"),
+        ("Dragon", "Dragon"),
+        ("Other", "Other"),
+    ]
+    name = models.CharField(max_length=100)
+    race = models.CharField(max_length=100, choices=RACE_CHOICES)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
