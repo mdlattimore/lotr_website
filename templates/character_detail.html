@@ -10,7 +10,7 @@
 <h1 class="display-6">Verses from this character:</h1>
 <ul>
     {% for verse in verses %}
-        <li><a href="{% url 'verse_detail' verse.id %}">{{ verse }}</a><br>
+        <li><a href="{% url 'verse_detail' verse.id %}">{{ verse.text|slice:":100" }}</a><br>
             &nbsp;&nbsp;&nbsp;&nbsp;<span class="title">{{ verse.get_book_display }},</span> {% if verse.sub_book %}Book {{ verse.sub_book }}, {% endif %}Chapter {{verse.chapter }}, Page {{ verse.page }}</li>
     {% empty %}
         <li>No verses from this character</li>
