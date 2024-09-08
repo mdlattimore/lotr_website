@@ -10,7 +10,7 @@
         <pre><span class="verse-display">{{ verse.text }}</span></pre>
     </blockquote>
     <figcaption class="blockquote-footer py-2 px-2" style="font-size: .9rem;">
-        Recited by {{ verse.speaker }} in <span class="title">{{ verse.get_book_display }},</span> {% if verse.sub_book %}Book {{ verse.sub_book }}, {% endif %}Chapter {{verse.chapter }}, Page {{ verse.page }}
+        Recited by {% for name in verse.speaker.all %}{{ name }}, {% endfor %}in <span class="title">{{ verse.get_book_display }},</span> {% if verse.sub_book %}Book {{ verse.sub_book }}, {% endif %}Chapter {{verse.chapter }}, Page {{ verse.page }}
     </figcaption>
 </figure>
 <hr>

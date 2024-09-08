@@ -3,13 +3,24 @@ from .models import Verses, Characters
 # Register your models here.
 
 class VersesAdmin(admin.ModelAdmin):
-    list_filter = ["book", "speaker"]
-    list_display = ("book", "speaker", "short_text")
-    ordering = ("book", "sub_book", "chapter", "page", "speaker",)
+    list_filter = ["book",]
+    list_display = ("book", "get_speakers", "short_text")
+    filter_horizontal = ('speaker',)
+    ordering = ("book", "sub_book", "chapter", "page",)
     readonly_fields = ('id',)
 
     def short_text(self, obj):
         return obj.text[:50] + '...' if len(obj.text) > 50 else obj.text
+    
+    # This method will return a comma-separated list of authors for each book
+    def get_speakers(self, obj):
+        return ", ".join([character.name for character in obj.speaker.all()])
+    
+    get_speakers.short_description = "Speaker(s)"
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        return queryset.distinct()  # Ensure each book appears only once
 
 
 class CharactersAdmin(admin.ModelAdmin):
