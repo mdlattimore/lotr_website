@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ verse.speaker }}{% endblock title %}
+
+{% block content %}
+
+<h1 class="display-6">{{ character.name }}</h1>
+<p>Race: {{ character.race }}</p><br>
+<p>{{ character.description }}</p>
+<h1 class="display-6">Verses from this character:</h1>
+<ul>
+    {% for verse in verses %}
+        <li><a href="{% url 'verse_detail' verse.id %}">{{ verse }}</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="title">{{ verse.get_book_display }},</span> {% if verse.sub_book %}Book {{ verse.sub_book }}, {% endif %}Chapter {{verse.chapter }}, Page {{ verse.page }}</li>
+    {% empty %}
+        <li>No verses from this character</li>
+    {% endfor %}
+</ul>
+
+  <p><a href="{% url 'characters_list' %}">Back to full list</a></p>
+
+{% endblock content %} %

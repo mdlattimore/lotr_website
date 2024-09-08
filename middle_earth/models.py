@@ -1,9 +1,5 @@
 from django.db import models
-from multiselectfield import MultiSelectField
-
-
-
-    
+from django.urls import reverse
 
 class Characters(models.Model):
     class Meta:
@@ -27,11 +23,15 @@ class Characters(models.Model):
         ("Other", "Other"),
     ]
     name = models.CharField(max_length=100)
+    aka = models.CharField(max_length=100, blank=True, null=True)
     race = models.CharField(max_length=100, choices=RACE_CHOICES)
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('verse_detail', args=[str(self.id)])
     
 
 class Verses(models.Model):
@@ -95,3 +95,6 @@ class Verses(models.Model):
 
     def __str__(self):
         return f"{self.text[:50]}"
+    
+    def get_absolute_url(self):
+        return reverse('character_detail', args=[str(self.id)])
