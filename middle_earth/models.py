@@ -20,12 +20,15 @@ class Characters(models.Model):
         ("Ent", "Ent"),
         ("Balrog", "Balrog"),
         ("Dragon", "Dragon"),
-        ("Other", "Other"),
+        ("Wight", "Wight"),
+        ("Other/Unknown", "Other/Unknown"),
     ]
     name = models.CharField(max_length=100)
     aka = models.CharField(max_length=100, blank=True, null=True)
     race = models.CharField(max_length=100, choices=RACE_CHOICES)
     description = models.TextField(blank=True, null=True)
+    picture = models.ImageField(upload_to='character_pictures/', blank=True)
+    picture_credit = models.CharField(max_length=250, blank=True, null=True)
 
     def __str__(self):
         return self.name

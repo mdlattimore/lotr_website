@@ -4,11 +4,8 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    <h1>Home Page</h1>
-    {% if user.is_authenticated %}
-        <p>Hi {{ user.email }}</p>
-    {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'account_login' %}">Log In</a>
-    {% endif %}
+    <h1 class="display-6">INTRO HEADING</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium maiores officiis corporis iure! Ratione, similique. Ad, fugit explicabo veritatis adipisci minima libero eum impedit atque soluta, praesentium omnis voluptate molestiae iure sequi eius modi cupiditate sed non totam illum suscipit. Unde voluptate distinctio veritatis nihil corporis ex maiores accusantium provident?</p>
+    <p><a href="{% url 'characters_list' %}">List of Middle Earth Characters</a></p>
+    <p><a href="{% url 'verses_list' %}">List of Verses in Middle Earth Literature</a></p>
 {% endblock content %}

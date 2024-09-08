@@ -6,10 +6,6 @@ body {
     background-color: #FCF5E5;
 }
 
-h1  {
-    color: red;
-}
-
 img.bookcover {
     height: 300px;
     width: auto;
@@ -29,6 +25,11 @@ img.bookcover {
 }
 
 .display-6 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     color: inherit;
+}
+
+.character_picture {
+    height: 300px;
+    width: auto;
 }
