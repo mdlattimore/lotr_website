@@ -107,7 +107,6 @@ class Place(models.Model):
         ("Beleriand", "Beleriand"),
         ("Middle Earth at End of Third Age", "Middle Earth at End of Third Age")
     ]
-    
     name = models.CharField(max_length=100)
     sub_continent = models.CharField(max_length=100, choices=SUB_CONTINENTS_CHOICES, blank=True, null=True)
     description = models.TextField()
