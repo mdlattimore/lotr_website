@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Verses, Characters
+from .models import Verse, Character, Place
 # Register your models here.
 
-class VersesAdmin(admin.ModelAdmin):
+class VerseAdmin(admin.ModelAdmin):
     list_filter = ["book",]
     list_display = ("book", "get_speakers", "short_text")
     filter_horizontal = ('speaker',)
@@ -23,12 +23,18 @@ class VersesAdmin(admin.ModelAdmin):
         return queryset.distinct()  # Ensure each book appears only once
 
 
-class CharactersAdmin(admin.ModelAdmin):
+class CharacterAdmin(admin.ModelAdmin):
     list_filter = ['name', 'race']
     list_display = ('name', 'race')
     ordering = ('name',)
     readonly_fields = ('id',)
 
 
-admin.site.register(Verses, VersesAdmin)
-admin.site.register(Characters, CharactersAdmin)
+class PlaceAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    ordering = ('name',)
+    readonly_fields = ('id',)
+
+admin.site.register(Verse, VerseAdmin)
+admin.site.register(Character, CharacterAdmin)
+admin.site.register(Place, PlaceAdmin)

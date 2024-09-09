@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-class Characters(models.Model):
+class Character(models.Model):
     class Meta:
         verbose_name_plural = "Characters"
     RACE_CHOICES = [
@@ -37,7 +37,7 @@ class Characters(models.Model):
         return reverse('verse_detail', args=[str(self.id)])
     
 
-class Verses(models.Model):
+class Verse(models.Model):
     """Page numbers for The Lord of the Rings (The Fellowship of the Ring, The Two Towers, 
     and The Return of the King) are taken from 
     Tolkien, J. R. R. 2021. The Lord of the Rings Illustrated. William Morrow & Company.
@@ -88,8 +88,7 @@ class Verses(models.Model):
         }
     
     text = models.TextField()
-    # speaker = models.CharField(max_length=100)
-    speaker = models.ManyToManyField(Characters)
+    speaker = models.ManyToManyField(Character)
     context = models.TextField()
     book = models.CharField(max_length=100, choices=BOOK_CHOICES)
     sub_book = models.CharField(max_length=20, blank=True, null=True)
@@ -101,3 +100,23 @@ class Verses(models.Model):
     
     def get_absolute_url(self):
         return reverse('character_detail', args=[str(self.id)])
+    
+
+class Place(models.Model):
+    SUB_CONTINENTS_CHOICES = [
+        ("Beleriand", "Beleriand"),
+        ("Middle Earth at End of Third Age", "Middle Earth at End of Third Age")
+    ]
+    
+    name = models.CharField(max_length=100)
+    sub_continent = models.CharField(max_length=100, choices=SUB_CONTINENTS_CHOICES, blank=True, null=True)
+    description = models.TextField()
+    picture = models.ImageField(upload_to='place_pictures/', blank=True)
+    picture_credit = models.CharField(max_length=250, blank=True, null=True)
+
+
+class Thing(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    picture = models.ImageField(upload_to='thing_pictures/', blank=True)
+    picture_credit = models.CharField(max_length=250, blank=True, null=True)
