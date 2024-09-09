@@ -39,6 +39,7 @@ CSRF_TRUSTED_ORIGINS = ['https://middle-earth-compendium.fly.dev']
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -168,3 +169,5 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+GRAPPELLI_ADMIN_TITLE = "Middle Earth Compendium Admin Page"

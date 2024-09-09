@@ -24,7 +24,7 @@ class Character(models.Model):
         ("Other/Unknown", "Other/Unknown"),
     ]
     name = models.CharField(max_length=100)
-    aka = models.CharField(max_length=100, blank=True, null=True)
+    aka = models.CharField(max_length=100, blank=True, null=True, verbose_name="AKA")
     race = models.CharField(max_length=100, choices=RACE_CHOICES)
     description = models.TextField(blank=True, null=True)
     picture = models.ImageField(upload_to='character_pictures/', blank=True)
@@ -95,11 +95,17 @@ class Verse(models.Model):
     chapter = models.CharField(max_length=10, blank=True, null=True)
     page = models.CharField(max_length=10, blank=True, null=True)
 
+
     def __str__(self):
         return f"{self.text[:50]}"
     
     def get_absolute_url(self):
         return reverse('character_detail', args=[str(self.id)])
+    
+    @property
+    def blurb(self):
+        # Split the text at the first line break and return the first line
+        return self.text.split('\n', 1)[0]
     
 
 class Place(models.Model):
