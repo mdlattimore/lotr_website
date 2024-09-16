@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from .models import Verse, Character
 
 
@@ -34,4 +34,6 @@ class CharacterDetailView(DetailView):
         return context
 
 
+class BibliographyView(TemplateView):
+    template_name = "bibliography.html"
     

@@ -33,3 +33,26 @@ img.bookcover {
     height: 300px;
     width: auto;
 }
+
+#tldr {
+    background-color: #dccfb1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.invisible-link {
+    color: transparent;    /* Make the text color invisible */
+    background-color: transparent;  /* Make the background invisible */
+    border: none;          /* Remove any border that might be applied */
+    text-decoration: none;  /* Remove underline if necessary */
+    cursor: pointer;        /* Ensure it's still clickable */
+  }
+  .invisible-link:hover {
+    color: transparent;     /* Keep it invisible even when hovered */
+  }
+
+  blockquote {
+    padding-left: 5%;
+    padding-right: 5%;
+    font-style: italic;
+  }

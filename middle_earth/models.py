@@ -104,7 +104,7 @@ class Verse(models.Model):
     
     @property
     def blurb(self):
-        # Split the text at the first line break and return the first line
+        # Split the text at the first line break and return the first line.
         return self.text.split('\n', 1)[0]
     
 
